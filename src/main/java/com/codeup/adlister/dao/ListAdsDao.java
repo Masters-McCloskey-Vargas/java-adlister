@@ -32,24 +32,28 @@ public class ListAdsDao implements Ads {
         ads.add(new Ad(
                 1,
                 "playstation for sale",
+                "Joe Shmoe",
                 "This is a slightly used playstation",
                 100
         ));
         ads.add(new Ad(
                 1,
                 "Super Nintendo",
+                "John Doe",
                 "Get your game on with this old-school classic!",
                 100
         ));
         ads.add(new Ad(
                 2,
                 "Junior Java Developer Position",
+                "Fred Flintstone",
                 "Minimum 7 years of experience required. You will be working in the scripting language for Java, JavaScript",
                 100
         ));
         ads.add(new Ad(
                 2,
                 "JavaScript Developer needed",
+                "Sam Sneed",
                 "Must have strong Java skills",
                 100
         ));
