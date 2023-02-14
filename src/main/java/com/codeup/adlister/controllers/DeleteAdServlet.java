@@ -3,7 +3,6 @@ package com.codeup.adlister.controllers;
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,17 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/ads/create")
-public class CreateAdServlet extends HttpServlet {
+@WebServlet(name = "controllers.DeleteAdServlet", urlPatterns = "/ads/delete")
+public class DeleteAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getSession().getAttribute("user") == null) {
             response.sendRedirect("/login");
             return;
         }
-        request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
+        request.getRequestDispatcher("/WEB-INF/ads/delete.jsp")
             .forward(request, response);
     }
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         User user = (User) request.getSession().getAttribute("user");
         Ad ad = new Ad(
@@ -30,7 +28,7 @@ public class CreateAdServlet extends HttpServlet {
             request.getParameter("description"),
             request.getIntHeader("price")
         );
-        DaoFactory.getAdsDao().insert(ad);
+        DaoFactory.getAdsDao().delete(ad);
         response.sendRedirect("/ads");
     }
 }
