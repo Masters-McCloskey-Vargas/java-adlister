@@ -9,7 +9,7 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <div class="container">
-    <form action="/ads">
+    <form action="/ads" method="post">
         <div class="form-group">
             <label for="search">Search by Title</label>
             <input type="text" id="search" name="search" placeholder="Search here!">

@@ -10,12 +10,19 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(name = "controllers.AdsIndexServlet", urlPatterns = "/ads/*")
+@WebServlet(name = "controllers.AdsIndexServlet", urlPatterns = "/ads")
 public class AdsIndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String userSearch = (String) request.getAttribute("search");
-        System.out.println(userSearch);
-        if (request.getAttribute("search") == null) {
+        request.setAttribute("ads", DaoFactory.getAdsDao().all());
+        request.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(request, response);
+
+    }
+
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String userSearch = request.getParameter("search");
+
+        if (request.getParameter("search") == null) {
             request.setAttribute("ads", DaoFactory.getAdsDao().all());
         } else {
             try {
