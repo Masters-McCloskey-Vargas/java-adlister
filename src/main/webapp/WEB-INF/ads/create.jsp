@@ -14,8 +14,16 @@
                 <input id="title" name="title" class="form-control" type="text">
             </div>
             <div class="form-group">
+                <label for="creator">Username</label>
+                <input id="creator" name="creator" class="form-control" type="text">
+            </div>
+            <div class="form-group">
                 <label for="description">Description</label>
                 <textarea id="description" name="description" class="form-control" type="text"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input class="form-control" name="price" id="price" placeholder="How much?">
             </div>
             <input type="submit" class="btn btn-block btn-primary">
         </form>
