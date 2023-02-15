@@ -43,7 +43,7 @@ public class MySQLAdsDao implements Ads {
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
             stmt.setLong(1, ad.getUserId());
             stmt.setString(2, ad.getTitle());
-            stmt.setString(3, ad.getCreator());
+//            stmt.setString(3, ad.getCreator());
             stmt.setString(4, ad.getDescription());
             stmt.setDouble(5, ad.getPrice());
             stmt.executeUpdate();
@@ -60,7 +60,6 @@ public class MySQLAdsDao implements Ads {
             rs.getLong("id"),
             rs.getLong("user_id"),
             rs.getString("title"),
-            rs.getString("creator"),
             rs.getString("description"),
             rs.getDouble("price")
         );
@@ -72,5 +71,16 @@ public class MySQLAdsDao implements Ads {
             ads.add(extractAd(rs));
         }
         return ads;
+    }
+    public List<Ad> searchAds(String userSearch) throws SQLException {
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM ads WHERE title LIKE ?");
+            stmt.setString(1, "%" + userSearch + "%");
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all ads.", e);
+        }
     }
 }
