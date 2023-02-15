@@ -9,9 +9,11 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <div>
-    <label for="search">Search the ads by title.</label>
-    <input type="text" id="search" onkeyup="search_ads.title()" name="search" placeholder="Search here!">
+    <form action="/ads">
+    <label for="search">Search the ads by title or creator.</label>
+    <input type="text" id="search" name="search" placeholder="Search here!">
     <button type="submit">Search</button>
+    </form>
 </div>
 <div class="container">
     <h1>Here are all the ads!</h1>

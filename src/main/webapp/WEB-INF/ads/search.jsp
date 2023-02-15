@@ -14,7 +14,9 @@
     </jsp:include>
 </head>
 <body>
+
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<label></label>
 
 </body>
 </html>

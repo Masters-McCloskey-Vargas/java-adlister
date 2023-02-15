@@ -8,11 +8,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 
-@WebServlet(name = "controllers.AdsIndexServlet", urlPatterns = "/ads")
+@WebServlet(name = "controllers.AdsIndexServlet", urlPatterns = "/ads/*")
 public class AdsIndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("ads", DaoFactory.getAdsDao().all());
+        String userSearch = (String) request.getAttribute("search");
+        System.out.println(userSearch);
+        if (request.getAttribute("search") == null) {
+            request.setAttribute("ads", DaoFactory.getAdsDao().all());
+        } else {
+            try {
+                request.setAttribute("ads", DaoFactory.getAdsDao().searchAds(userSearch));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
         request.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(request, response);
     }
 }
