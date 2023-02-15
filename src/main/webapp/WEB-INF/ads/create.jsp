@@ -14,10 +14,6 @@
                 <input id="title" name="title" class="form-control" type="text">
             </div>
             <div class="form-group">
-                <label for="creator">Username</label>
-                <input id="creator" name="creator" class="form-control" type="text">
-            </div>
-            <div class="form-group">
                 <label for="description">Description</label>
                 <textarea id="description" name="description" class="form-control" type="text"></textarea>
             </div>
@@ -28,5 +24,6 @@
             <input type="submit" class="btn btn-block btn-primary">
         </form>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

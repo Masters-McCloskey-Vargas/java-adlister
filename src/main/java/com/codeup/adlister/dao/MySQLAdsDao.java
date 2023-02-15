@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MySQLAdsDao implements Ads {
-    private Connection connection = null;
+    private Connection connection;
 
     public MySQLAdsDao(Config config) {
         try {
@@ -26,7 +26,7 @@ public class MySQLAdsDao implements Ads {
 
     @Override
     public List<Ad> all() {
-        PreparedStatement stmt = null;
+        PreparedStatement stmt;
         try {
             stmt = connection.prepareStatement("SELECT * FROM ads");
             ResultSet rs = stmt.executeQuery();
@@ -39,13 +39,13 @@ public class MySQLAdsDao implements Ads {
     @Override
     public Long insert(Ad ad) {
         try {
-            String insertQuery = "INSERT INTO ads(user_id, title, creator, description, price) VALUES (?, ?, ?, ?, ?)";
+            String insertQuery = "INSERT INTO ads(user_id, title, description, price) VALUES (?, ?, ?, ?)";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
             stmt.setLong(1, ad.getUserId());
             stmt.setString(2, ad.getTitle());
 //            stmt.setString(3, ad.getCreator());
-            stmt.setString(4, ad.getDescription());
-            stmt.setDouble(5, ad.getPrice());
+            stmt.setString(3, ad.getDescription());
+            stmt.setDouble(4, ad.getPrice());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
@@ -72,8 +72,8 @@ public class MySQLAdsDao implements Ads {
         }
         return ads;
     }
-    public List<Ad> searchAds(String userSearch) throws SQLException {
-        PreparedStatement stmt = null;
+    public List<Ad> searchAds(String userSearch){
+        PreparedStatement stmt;
         try {
             stmt = connection.prepareStatement("SELECT * FROM ads WHERE title LIKE ?");
             stmt.setString(1, "%" + userSearch + "%");
