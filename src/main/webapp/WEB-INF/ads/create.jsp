@@ -6,16 +6,13 @@
     </jsp:include>
 </head>
 <body>
+    <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container">
         <h1>Create a new Ad</h1>
         <form action="/ads/create" method="post">
             <div class="form-group">
                 <label for="title">Title</label>
                 <input id="title" name="title" class="form-control" type="text">
-            </div>
-            <div class="form-group">
-                <label for="creator">Username</label>
-                <input id="creator" name="creator" class="form-control" type="text">
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
@@ -28,5 +25,6 @@
             <input type="submit" class="btn btn-block btn-primary">
         </form>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

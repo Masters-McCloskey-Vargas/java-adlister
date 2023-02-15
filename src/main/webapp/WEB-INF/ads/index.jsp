@@ -8,14 +8,15 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-<div>
-    <form action="/ads">
-    <label for="search">Search the ads by title or creator.</label>
-    <input type="text" id="search" name="search" placeholder="Search here!">
-    <button type="submit">Search</button>
-    </form>
-</div>
 <div class="container">
+    <form action="/ads">
+        <div class="form-group">
+            <label for="search">Search by Title</label>
+            <input type="text" id="search" name="search" placeholder="Search here!">
+        </div>
+        <input type="submit" class="btn btn-primary">
+    </form>
+
     <h1>Here are all the ads!</h1>
     <c:forEach var="ad" items="${ads}">
         <div class="col-md-6">
@@ -25,5 +26,6 @@
         </div>
     </c:forEach>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
