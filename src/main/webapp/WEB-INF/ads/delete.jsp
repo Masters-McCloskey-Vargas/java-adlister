@@ -8,14 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Delete</title>
+    <jsp:include page="/ads">
+        <jsp:param name="ad" value="delete" />
+    </jsp:include>
 </head>
 <body>
-<div class="container">
-    <h1>Create a new Ad</h1>
-    <form action="/ads/create" method="post">
-        <input type="submit" class="btn btn-block btn-primary">
-    </form>
+<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<label></label>
 </div>
 </body>
 </html>
