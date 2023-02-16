@@ -4,7 +4,7 @@ public class Ad {
     private long id;
     private long userId;
     private String title;
-//    private String creator;
+    //    private String creator;
     private String description;
     private double price;
 
@@ -48,14 +48,6 @@ public class Ad {
     public void setTitle(String title) {
         this.title = title;
     }
-
-//    public String getCreator() {
-//        return creator;
-//    }
-//
-//    public void setCreator(String creator) {
-//        this.creator = creator;
-//    }
 
     public String getDescription() {
         return description;
