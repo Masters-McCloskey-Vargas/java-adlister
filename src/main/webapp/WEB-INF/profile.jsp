@@ -10,28 +10,34 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <div class="container">
     <h1>Welcome, ${sessionScope.user.username}!</h1>
-</div>
 <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">${sessionScope.user.username}'s Ads</button>
         <button class="nav-link" id="nav-create-tab" data-bs-toggle="tab" data-bs-target="#nav-create" type="button" role="tab" aria-controls="nav-create" aria-selected="false">Create Ad</button>
         <button class="nav-link" id="nav-edit-tab" data-bs-toggle="tab" data-bs-target="#nav-edit" type="button" role="tab" aria-controls="nav-edit" aria-selected="false">Edit Ad</button>
     </div>
 </nav>
 <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <form>
+        <h1>Your Ads:</h1>
+        <c:forEach var="ad" items="${ads}">
+            <div class="col-md-6">
+                <h2>${ad.title}</h2>
+                <p>${ad.description}</p>
+                <p>$${ad.price}</p>
+            </div>
+        </c:forEach>
+        </form>
+    </div>
     <div class="tab-pane fade" id="nav-create" role="tabpanel" aria-labelledby="nav-create-tab">
         <jsp:include page="ads/create.jsp"/>
     </div>
     <div class="tab-pane fade" id="nav-edit" role="tabpanel" aria-labelledby="nav-edit-tab">...</div>
 
 
-    <h1>Your Ads:</h1>
-    <c:forEach var="ad" items="${ads}">
-        <div class="col-md-6">
-            <h2>${ad.title}</h2>
-            <p>${ad.description}</p>
-            <p>${ad.price}</p>
-        </div>
-    </c:forEach>
+
+</div>
 </div>
 
 
