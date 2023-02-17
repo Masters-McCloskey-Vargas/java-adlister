@@ -11,7 +11,7 @@ import java.io.IOException;
 public class DeleteAdServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Long id = Long.parseLong(req.getParameter("ad_id"));
         DaoFactory.getAdsDao().deleteAd(id);
         resp.sendRedirect("/ads");

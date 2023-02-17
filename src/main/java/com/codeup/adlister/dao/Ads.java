@@ -8,7 +8,6 @@ public interface Ads {
     Long insert(Ad ad);
     List<Ad> searchAds(String userSearch) throws SQLException;
     List<Ad> userAds(long id);
-    long searchAdId(long adId);
     long deleteAd(long adId);
 
 }

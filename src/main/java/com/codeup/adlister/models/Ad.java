@@ -12,7 +12,6 @@ public class Ad {
         this.id = id;
         this.userId = userId;
         this.title = title;
-//        this.creator = creator;
         this.description = description;
         this.price = price;
     }
@@ -20,7 +19,6 @@ public class Ad {
     public Ad(long userId, String title, String description, double price) {
         this.userId = userId;
         this.title = title;
-//        this.creator = creator;
         this.description = description;
         this.price = price;
     }
