@@ -15,7 +15,6 @@
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
         <button class="nav-link" id="nav-create-tab" data-bs-toggle="tab" data-bs-target="#nav-create" type="button" role="tab" aria-controls="nav-create" aria-selected="false">Create Ad</button>
         <button class="nav-link" id="nav-edit-tab" data-bs-toggle="tab" data-bs-target="#nav-edit" type="button" role="tab" aria-controls="nav-edit" aria-selected="false">Edit Ad</button>
-        <button class="nav-link" id="nav-delete-tab" data-bs-toggle="tab" data-bs-target="#nav-delete" type="button" role="tab" aria-controls="nav-delete" aria-selected="false">Delete Ad</button>
     </div>
 </nav>
 <div class="tab-content" id="nav-tabContent">
@@ -23,7 +22,6 @@
         <jsp:include page="ads/create.jsp"/>
     </div>
     <div class="tab-pane fade" id="nav-edit" role="tabpanel" aria-labelledby="nav-edit-tab">...</div>
-    <div class="tab-pane fade" id="nav-delete" role="tabpanel" aria-labelledby="nav-delete-tab"><jsp:include page="ads/delete.jsp"/></div>
 
 
     <h1>Your Ads:</h1>
@@ -37,4 +35,6 @@
 </div>
 
 
-<script
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
